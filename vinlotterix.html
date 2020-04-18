@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <title>Vinlotterix</title>
+</head>
+
+<body>
+    <div class="page" id="page">
+        <div class="header" id="header"><button onclick="visOgSkjulMeny()">☰</button> Vinlotterix 🍷</div>
+        <div class="innhold" id="innhold"></div>
+        <div class="meny" id="meny">
+            <button class="fixed" onclick="visPersoner()">Personer</button><br />
+            <button class="fixed" onclick="visVinnere1()">Vinnere</button><br />
+            <button class="fixed">Om</button><br />
+            <button class="fixed">Exit</button><br />
+        </div>
+    </div>
+    <script>
+
+        visPersoner();
+
+        function visOgSkjulMeny() {
+            document.getElementById('page').classList.toggle('pageUtenMeny');
+        }
+
+        function visPersoner() {
+            document.getElementById('innhold').innerHTML = `
+                        <table>
+                            <tr><td><input type="checkbox"/></td><td>Personer</td><td>+</td><td>✎</td></tr>
+                            <tr><td><input type="checkbox" checked/></td><td>Per</td><td onclick="visPersonerMinusPer()">☒</td></tr>
+                            <tr><td><input type="checkbox" checked/></td><td>Pål</td><td>☒</td></tr>
+                            <tr><td><input type="checkbox"/></td><td>Espen</td><td>☒</td></tr>
+                            <tr><td><input type="checkbox" checked/></td><td>Ole</td><td>☒</td></tr>
+                            <tr><td colspan="4"><button onclick="visVinnere2()">Trekk!</button> <input type="text" size="1" value="1"/>
+                                <button>▲</button>
+                                <button>▼</button></td></tr>
+                        </table>
+                        `;
+        }
+
+        function visPersonerMinusPer() {
+            document.getElementById('innhold').innerHTML = `
+                        <table>
+                            <tr><td><input type="checkbox"/></td><td>Personer</td><td>+</td><td>✎</td></tr>
+                            <tr><td><input type="checkbox" checked/></td><td>Pål</td><td>☒</td></tr>
+                            <tr><td><input type="checkbox"/></td><td>Espen</td><td>☒</td></tr>
+                            <tr><td><input type="checkbox" checked/></td><td>Ole</td><td>☒</td></tr>
+                            <tr><td colspan="4"><button onclick="visVinnere2()">Trekk!</button> <input type="text" size="1" value="1"/>
+                                <button>▲</button>
+                                <button>▼</button></td></tr>
+                        </table>
+                        `;
+        }
+
+        function visVinnere1() {
+            document.getElementById('innhold').innerHTML = `
+                <p>
+                    <small>onsdag 17.10.18</small><br/>
+                    <b>Vinneren er Ole!</b><br/>
+                    <small>Trukket fra totalt 3 personer: Per, Pål og Ole</small>
+                </p>
+                `;
+        }
+
+        function visVinnere2() {
+            document.getElementById('innhold').innerHTML = `
+                <p>
+                    <small>onsdag 31.10.18</small><br/>
+                    <b>Vinneren er Pål!</b><br/>
+                    <small>Trukket fra totalt 2 personer: Pål og Ole</small>
+                </p>
+                <p>
+                    <small>onsdag 17.10.18</small><br/>
+                    <b>Vinneren er Ole!</b><br/>
+                    <small>Trukket fra totalt 3 personer: Per, Pål og Ole</small>
+                </p>
+                `;
+        }
+    </script>
+</body>
+
+</html>
